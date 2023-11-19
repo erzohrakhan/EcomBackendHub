@@ -1,10 +1,10 @@
 package com.zohra.ProductService.service;
 
+import com.zohra.Core.dto.request.ProductRequest;
+import com.zohra.Core.dto.response.ProductResponse;
 import com.zohra.ProductService.entity.Product;
 import com.zohra.ProductService.exception.ProductNotFoundException;
 import com.zohra.ProductService.exception.ProductServiceException;
-import com.zohra.ProductService.model.ProductRequest;
-import com.zohra.ProductService.model.ProductResponse;
 import com.zohra.ProductService.repository.ProductRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

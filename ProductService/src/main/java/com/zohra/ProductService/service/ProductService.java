@@ -1,7 +1,7 @@
 package com.zohra.ProductService.service;
 
-import com.zohra.ProductService.model.ProductRequest;
-import com.zohra.ProductService.model.ProductResponse;
+import com.zohra.Core.dto.request.ProductRequest;
+import com.zohra.Core.dto.response.ProductResponse;
 
 public interface ProductService {
   long addProduct(ProductRequest productRequest);

@@ -1,4 +1,4 @@
-package com.zohra.ProductService.exception;
+package com.zohra.UserService.exception;
 
 import com.zohra.Core.dto.ErrorResponse;
 import jakarta.validation.ValidationException;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class ProductResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+public class UserResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-  @ExceptionHandler(ProductNotFoundException.class)
-  public ResponseEntity<ErrorResponse> handleProductNotFoundExcpetion(
-      ProductNotFoundException exception) {
+  @ExceptionHandler(UserNotFoundException.class)
+  public ResponseEntity<ErrorResponse> handleUserNotFoundExcpetion(
+      UserNotFoundException exception) {
     ResponseEntity<ErrorResponse> errorResponseResponseEntity =
         new ResponseEntity<>(
             new ErrorResponse(exception.getMessage(), exception.getErrorCode()),
@@ -28,10 +28,10 @@ public class ProductResponseEntityExceptionHandler extends ResponseEntityExcepti
     return ResponseEntity.badRequest().body(exception.getMessage());
   }
 
-  @ExceptionHandler(ProductServiceException.class)
+  @ExceptionHandler(UserServiceException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)
   public ResponseEntity<ErrorResponse> handleProductServiceException(
-      ProductServiceException exception) {
+      UserServiceException exception) {
     return new ResponseEntity<>(
         new ErrorResponse(exception.getMessage(), exception.getErrorCode()), HttpStatus.NOT_FOUND);
   }

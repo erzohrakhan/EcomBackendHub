@@ -1,4 +1,4 @@
-package com.zohra.ProductService.model;
+package com.zohra.Core.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;

@@ -10,7 +10,7 @@ public class OrderItem {
     private Long orderItemId;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "orderId")
     private Order order;
 
    @Column(name = "product_id")

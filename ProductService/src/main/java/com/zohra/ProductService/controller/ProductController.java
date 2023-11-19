@@ -1,7 +1,7 @@
 package com.zohra.ProductService.controller;
 
-import com.zohra.ProductService.model.ProductRequest;
-import com.zohra.ProductService.model.ProductResponse;
+import com.zohra.Core.dto.request.ProductRequest;
+import com.zohra.Core.dto.response.ProductResponse;
 import com.zohra.ProductService.service.ProductService;
 import jakarta.validation.Valid;
 import jakarta.validation.ValidationException;
