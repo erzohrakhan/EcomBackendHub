@@ -1,6 +1,7 @@
 package com.zohra.OrderService.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name="order_detail")
@@ -12,12 +13,12 @@ public class Order {
     private Long productId;
     @Column(name="quantity")
     private Long quantity;
-    @Column(name="amount")
-    private Long amount;
+    @Column(name="total_amount")
+    private Double amount;
     @Column(name="order_status")
     private String orderStatus;
 
-    public Order(Long orderId, Long productId, Long quantity, Long amount, String orderStatus) {
+    public Order(Long orderId, Long productId, Long quantity, Double amount, String orderStatus) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
@@ -52,11 +53,11 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Long getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 }

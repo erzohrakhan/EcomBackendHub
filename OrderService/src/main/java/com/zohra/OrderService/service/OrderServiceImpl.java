@@ -1,6 +1,7 @@
 package com.zohra.OrderService.service;
 
 import com.zohra.Core.dto.request.OrderRequest;
+import com.zohra.OrderService.entity.Order;
 import com.zohra.OrderService.repository.OrderRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,6 +21,12 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Long placeOrder(OrderRequest orderRequest) {
 
-        return 0L;
+        Order order = new Order();
+        order.setAmount(orderRequest.totalAmount());
+        order.setProductId(orderRequest.productId());
+        order.setQuantity(orderRequest.quantity());
+        orderRepository.save(order);
+
+        return order.getOrderId();
     }
 }
