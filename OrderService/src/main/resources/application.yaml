@@ -13,5 +13,5 @@ spring:
   config:
     import: configserver:http://localhost:9296
   application:
-    name: ORDER_SERVICE
+    name: ORDER-SERVICE
 

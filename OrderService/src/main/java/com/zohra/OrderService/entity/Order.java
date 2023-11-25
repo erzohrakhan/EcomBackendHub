@@ -3,6 +3,9 @@ package com.zohra.OrderService.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name="order_detail")
 public class Order {
@@ -17,16 +20,20 @@ public class Order {
     private Double amount;
     @Column(name="order_status")
     private String orderStatus;
+    @Column(name="order_date")
+    private LocalDateTime orderDate;
 
-    public Order(Long orderId, Long productId, Long quantity, Double amount, String orderStatus) {
+    public Order(Long orderId, Long productId, Long quantity, Double amount, String orderStatus, LocalDateTime orderDate) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
         this.amount = amount;
         this.orderStatus = orderStatus;
+        this.orderDate = orderDate;
     }
 
     public Order() {
+        this.orderDate = LocalDateTime.now();
     }
 
     public Long getOrderId() {
@@ -59,5 +66,21 @@ public class Order {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
     }
 }

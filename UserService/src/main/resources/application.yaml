@@ -13,5 +13,5 @@ spring:
   config:
     import: configserver:http://localhost:9296
   application:
-    name: USER_SERVICE
+    name: USER-SERVICE
 
