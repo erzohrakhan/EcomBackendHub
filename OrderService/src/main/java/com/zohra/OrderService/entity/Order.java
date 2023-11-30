@@ -14,6 +14,8 @@ public class Order {
     private Long orderId;
     @Column(name = "product_id")
     private Long productId;
+    @Column(name = "user_id")
+    private Long userId;
     @Column(name="quantity")
     private Long quantity;
     @Column(name="total_amount")
@@ -23,9 +25,10 @@ public class Order {
     @Column(name="order_date")
     private LocalDateTime orderDate;
 
-    public Order(Long orderId, Long productId, Long quantity, Double amount, String orderStatus, LocalDateTime orderDate) {
+    public Order(Long orderId, Long productId, Long userId, Long quantity, Double amount, String orderStatus, LocalDateTime orderDate) {
         this.orderId = orderId;
         this.productId = productId;
+        this.userId = userId;
         this.quantity = quantity;
         this.amount = amount;
         this.orderStatus = orderStatus;
@@ -82,5 +85,13 @@ public class Order {
 
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

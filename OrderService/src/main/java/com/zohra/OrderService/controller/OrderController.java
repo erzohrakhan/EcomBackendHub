@@ -1,6 +1,7 @@
 package com.zohra.OrderService.controller;
 
 import com.zohra.Core.dto.request.OrderRequest;
+import com.zohra.Core.dto.response.OrderResponse;
 import com.zohra.OrderService.service.OrderService;
 import jakarta.validation.Valid;
 import jakarta.validation.ValidationException;
@@ -22,10 +23,14 @@ public class OrderController {
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
-    //    @Autowired
-//    public OrderController(OrderService orderService) {
-//        this.orderService = orderService;
-//    }
+
+    @GetMapping("/{id}")
+    ResponseEntity<OrderResponse> getOrderById(@PathVariable("id") Long orderId) {
+        log.info("Get order " + orderId );
+        return new ResponseEntity<>(orderService.getOrderById(orderId), HttpStatus.OK);
+
+    }
+
 
     @PostMapping("/place-order")
     ResponseEntity<Long> placeOrder(@RequestBody @Valid OrderRequest orderRequest, BindingResult bindingResult) {
@@ -36,6 +41,7 @@ public class OrderController {
         Long orderId = orderService.placeOrder(orderRequest);
         return new ResponseEntity<>(orderId, HttpStatus.CREATED);
     }
+
 
     private String buildErrorMessage(BindingResult bindingResult) {
         StringBuilder errors = new StringBuilder();
